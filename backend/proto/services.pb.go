@@ -110,9 +110,105 @@ func (m *AuthResponse) GetToken() string {
 	return ""
 }
 
+type SignUpRequest struct {
+	Username             string   `protobuf:"bytes,1,opt,name=Username,proto3" json:"Username,omitempty"`
+	Email                string   `protobuf:"bytes,2,opt,name=Email,proto3" json:"Email,omitempty"`
+	Password             string   `protobuf:"bytes,3,opt,name=Password,proto3" json:"Password,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *SignUpRequest) Reset()         { *m = SignUpRequest{} }
+func (m *SignUpRequest) String() string { return proto.CompactTextString(m) }
+func (*SignUpRequest) ProtoMessage()    {}
+func (*SignUpRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_8e16ccb8c5307b32, []int{2}
+}
+
+func (m *SignUpRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SignUpRequest.Unmarshal(m, b)
+}
+func (m *SignUpRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SignUpRequest.Marshal(b, m, deterministic)
+}
+func (m *SignUpRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SignUpRequest.Merge(m, src)
+}
+func (m *SignUpRequest) XXX_Size() int {
+	return xxx_messageInfo_SignUpRequest.Size(m)
+}
+func (m *SignUpRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_SignUpRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SignUpRequest proto.InternalMessageInfo
+
+func (m *SignUpRequest) GetUsername() string {
+	if m != nil {
+		return m.Username
+	}
+	return ""
+}
+
+func (m *SignUpRequest) GetEmail() string {
+	if m != nil {
+		return m.Email
+	}
+	return ""
+}
+
+func (m *SignUpRequest) GetPassword() string {
+	if m != nil {
+		return m.Password
+	}
+	return ""
+}
+
+type SignUpResponse struct {
+	Msg                  string   `protobuf:"bytes,1,opt,name=msg,proto3" json:"msg,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *SignUpResponse) Reset()         { *m = SignUpResponse{} }
+func (m *SignUpResponse) String() string { return proto.CompactTextString(m) }
+func (*SignUpResponse) ProtoMessage()    {}
+func (*SignUpResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_8e16ccb8c5307b32, []int{3}
+}
+
+func (m *SignUpResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SignUpResponse.Unmarshal(m, b)
+}
+func (m *SignUpResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SignUpResponse.Marshal(b, m, deterministic)
+}
+func (m *SignUpResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SignUpResponse.Merge(m, src)
+}
+func (m *SignUpResponse) XXX_Size() int {
+	return xxx_messageInfo_SignUpResponse.Size(m)
+}
+func (m *SignUpResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_SignUpResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SignUpResponse proto.InternalMessageInfo
+
+func (m *SignUpResponse) GetMsg() string {
+	if m != nil {
+		return m.Msg
+	}
+	return ""
+}
+
 func init() {
 	proto.RegisterType((*LogInRequest)(nil), "proto.LogInRequest")
 	proto.RegisterType((*AuthResponse)(nil), "proto.AuthResponse")
+	proto.RegisterType((*SignUpRequest)(nil), "proto.SignUpRequest")
+	proto.RegisterType((*SignUpResponse)(nil), "proto.SignUpResponse")
 }
 
 func init() {
@@ -120,17 +216,22 @@ func init() {
 }
 
 var fileDescriptor_8e16ccb8c5307b32 = []byte{
-	// 151 bytes of a gzipped FileDescriptorProto
+	// 228 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xe2, 0xe2, 0x2b, 0x4e, 0x2d, 0x2a,
 	0xcb, 0x4c, 0x4e, 0x2d, 0xd6, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x05, 0x53, 0x4a, 0x0e,
 	0x5c, 0x3c, 0x3e, 0xf9, 0xe9, 0x9e, 0x79, 0x41, 0xa9, 0x85, 0xa5, 0xa9, 0xc5, 0x25, 0x42, 0x22,
 	0x5c, 0xac, 0x40, 0x7e, 0x66, 0x9e, 0x04, 0xa3, 0x02, 0xa3, 0x06, 0x67, 0x10, 0x84, 0x23, 0x24,
 	0xc5, 0xc5, 0x11, 0x90, 0x58, 0x5c, 0x5c, 0x9e, 0x5f, 0x94, 0x22, 0xc1, 0x04, 0x96, 0x80, 0xf3,
 	0x95, 0x54, 0xb8, 0x78, 0x1c, 0x4b, 0x4b, 0x32, 0x82, 0x52, 0x8b, 0x0b, 0xf2, 0xf3, 0x8a, 0x53,
-	0x41, 0x26, 0x84, 0xe4, 0x67, 0xa7, 0xc2, 0x4d, 0x00, 0x73, 0x8c, 0x1c, 0xb8, 0xb8, 0x41, 0xaa,
-	0x82, 0x21, 0x8e, 0x10, 0x32, 0x84, 0x5a, 0x23, 0x24, 0x0c, 0x71, 0x8e, 0x1e, 0xb2, 0x23, 0xa4,
-	0x60, 0x82, 0xc8, 0xe6, 0x26, 0xb1, 0x81, 0xc5, 0x8c, 0x01, 0x01, 0x00, 0x00, 0xff, 0xff, 0x9e,
-	0x2d, 0x21, 0xe6, 0xc9, 0x00, 0x00, 0x00,
+	0x41, 0x26, 0x84, 0xe4, 0x67, 0xa7, 0xc2, 0x4d, 0x00, 0x73, 0x94, 0x62, 0xb9, 0x78, 0x83, 0x33,
+	0xd3, 0xf3, 0x42, 0x0b, 0x60, 0x16, 0x01, 0x8d, 0x0c, 0x05, 0x3a, 0x29, 0x2f, 0x31, 0x37, 0x15,
+	0xaa, 0x12, 0xce, 0x07, 0x19, 0xe1, 0x9a, 0x9b, 0x98, 0x99, 0x03, 0xb5, 0x0b, 0xc2, 0x41, 0x71,
+	0x04, 0x33, 0x9a, 0x23, 0x94, 0xb8, 0xf8, 0x60, 0xc6, 0x43, 0x9d, 0x21, 0xc0, 0xc5, 0x9c, 0x5b,
+	0x9c, 0x0e, 0x35, 0x1a, 0xc4, 0x34, 0x2a, 0xe7, 0xe2, 0x06, 0x39, 0x34, 0x18, 0x12, 0x0e, 0x42,
+	0x86, 0x50, 0x9f, 0x0a, 0x09, 0x43, 0x42, 0x44, 0x0f, 0x39, 0x1c, 0xa4, 0x60, 0x82, 0x28, 0x5e,
+	0x33, 0xe5, 0x62, 0x83, 0xd8, 0x22, 0x24, 0x02, 0x95, 0x46, 0xf1, 0x93, 0x94, 0x28, 0x9a, 0x28,
+	0x44, 0x5b, 0x12, 0x1b, 0x58, 0xd4, 0x18, 0x10, 0x00, 0x00, 0xff, 0xff, 0x99, 0xd6, 0xfd, 0xfe,
+	0x83, 0x01, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -146,6 +247,7 @@ const _ = grpc.SupportPackageIsVersion6
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type AuthServiceClient interface {
 	Login(ctx context.Context, in *LogInRequest, opts ...grpc.CallOption) (*AuthResponse, error)
+	SignUp(ctx context.Context, in *SignUpRequest, opts ...grpc.CallOption) (*SignUpResponse, error)
 }
 
 type authServiceClient struct {
@@ -165,9 +267,19 @@ func (c *authServiceClient) Login(ctx context.Context, in *LogInRequest, opts ..
 	return out, nil
 }
 
+func (c *authServiceClient) SignUp(ctx context.Context, in *SignUpRequest, opts ...grpc.CallOption) (*SignUpResponse, error) {
+	out := new(SignUpResponse)
+	err := c.cc.Invoke(ctx, "/proto.AuthService/SignUp", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // AuthServiceServer is the server API for AuthService service.
 type AuthServiceServer interface {
 	Login(context.Context, *LogInRequest) (*AuthResponse, error)
+	SignUp(context.Context, *SignUpRequest) (*SignUpResponse, error)
 }
 
 // UnimplementedAuthServiceServer can be embedded to have forward compatible implementations.
@@ -176,6 +288,9 @@ type UnimplementedAuthServiceServer struct {
 
 func (*UnimplementedAuthServiceServer) Login(ctx context.Context, req *LogInRequest) (*AuthResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Login not implemented")
+}
+func (*UnimplementedAuthServiceServer) SignUp(ctx context.Context, req *SignUpRequest) (*SignUpResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SignUp not implemented")
 }
 
 func RegisterAuthServiceServer(s *grpc.Server, srv AuthServiceServer) {
@@ -200,6 +315,24 @@ func _AuthService_Login_Handler(srv interface{}, ctx context.Context, dec func(i
 	return interceptor(ctx, in, info, handler)
 }
 
+func _AuthService_SignUp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SignUpRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AuthServiceServer).SignUp(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/proto.AuthService/SignUp",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AuthServiceServer).SignUp(ctx, req.(*SignUpRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _AuthService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "proto.AuthService",
 	HandlerType: (*AuthServiceServer)(nil),
@@ -207,6 +340,10 @@ var _AuthService_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Login",
 			Handler:    _AuthService_Login_Handler,
+		},
+		{
+			MethodName: "SignUp",
+			Handler:    _AuthService_SignUp_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
